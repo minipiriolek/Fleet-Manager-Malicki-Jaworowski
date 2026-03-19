@@ -28,5 +28,13 @@ namespace FleetManager.Models
             get => _status;
             set => this.RaiseAndSetIfChanged(ref _status, value);
         }
+        
+        public string StatusColor => Status switch
+        {
+            VehicleStatus.Available => "#28a745", 
+            VehicleStatus.InRoute => "#007bff",   
+            VehicleStatus.Service => "#dc3545",   
+            _ => "#6c757d"
+        };
     }
 }
