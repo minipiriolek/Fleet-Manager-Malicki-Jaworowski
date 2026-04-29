@@ -51,7 +51,7 @@
                            IsVisible="{Binding CanShowLowFuelWarning}"/>
             </StackPanel>
 
-            <DockPanel Margin="0,5,0,0">
+            <StackPanel Margin="0,5,0,0" Spacing="8">
                 <Border Padding="8,4"
                         CornerRadius="4"
                         Background="{Binding StatusColor}"
@@ -71,12 +71,34 @@
 
                     <Button Content="W trase"
                             Click="DispatchButton_OnClick"
+                            IsVisible="{Binding IsAvailable}"
                             IsEnabled="{Binding CanGoOnRoute}"
                             Background="#007ACC"
                             FontSize="11"
                             Padding="10,2"/>
+
+                    <Button Content="Serwis"
+                            Click="ServiceButton_OnClick"
+                            IsVisible="{Binding IsAvailable}"
+                            Background="#6c757d"
+                            FontSize="11"
+                            Padding="10,2"/>
+
+                    <Button Content="Powrót"
+                            Click="ReturnButton_OnClick"
+                            IsVisible="{Binding IsInRoute}"
+                            Background="#28a745"
+                            FontSize="11"
+                            Padding="10,2"/>
+
+                    <Button Content="Powrót"
+                            Click="FinishServiceButton_OnClick"
+                            IsVisible="{Binding IsInService}"
+                            Background="#28a745"
+                            FontSize="11"
+                            Padding="10,2"/>
                 </StackPanel>
-            </DockPanel>
+            </StackPanel>
         </StackPanel>
     </Border>
 </UserControl>

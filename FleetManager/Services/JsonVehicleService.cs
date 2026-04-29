@@ -9,14 +9,13 @@ namespace FleetManager.Services
 {
     public class JsonVehicleService : IVehicleService
     {
-        
-        private readonly string _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vehicles.json");
+        private readonly string _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "vehicles.json");
 
         public async Task<IEnumerable<Vehicle>> LoadVehiclesAsync()
         {
             if (!File.Exists(_filePath))
             {
-                return new List<Vehicle>(); 
+                return new List<Vehicle>();
             }
 
             using FileStream openStream = File.OpenRead(_filePath);
@@ -25,7 +24,7 @@ namespace FleetManager.Services
 
         public async Task SaveVehiclesAsync(IEnumerable<Vehicle> vehicles)
         {
-            var options = new JsonSerializerOptions { WriteIndented = true }; 
+            var options = new JsonSerializerOptions { WriteIndented = true };
             using FileStream createStream = File.Create(_filePath);
             await JsonSerializer.SerializeAsync(createStream, vehicles, options);
         }

@@ -43,6 +43,9 @@ namespace FleetManager.Models
                 this.RaisePropertyChanged(nameof(CanRefuel));
                 this.RaisePropertyChanged(nameof(CanGoOnRoute));
                 this.RaisePropertyChanged(nameof(CanShowLowFuelWarning));
+                this.RaisePropertyChanged(nameof(IsAvailable));
+                this.RaisePropertyChanged(nameof(IsInRoute));
+                this.RaisePropertyChanged(nameof(IsInService));
             }
         }
 
@@ -72,20 +75,43 @@ namespace FleetManager.Models
         [JsonIgnore]
         public bool CanShowLowFuelWarning => !CanGoOnRoute;
 
+        [JsonIgnore]
+        public bool IsAvailable => Status == VehicleStatus.Available;
+
+        [JsonIgnore]
+        public bool IsInRoute => Status == VehicleStatus.InRoute;
+
+        [JsonIgnore]
+        public bool IsInService => Status == VehicleStatus.Service;
+
         public void Refuel()
         {
             if (CanRefuel)
-            {
                 FuelLevel = 100;
-            }
         }
 
         public void Dispatch()
         {
             if (CanGoOnRoute)
-            {
                 Status = VehicleStatus.InRoute;
-            }
+        }
+
+        public void ReturnFromRoute()
+        {
+            if (IsInRoute)
+                Status = VehicleStatus.Available;
+        }
+
+        public void SendToService()
+        {
+            if (!IsInRoute)
+                Status = VehicleStatus.Service;
+        }
+
+        public void FinishService()
+        {
+            if (IsInService)
+                Status = VehicleStatus.Available;
         }
     }
 }
