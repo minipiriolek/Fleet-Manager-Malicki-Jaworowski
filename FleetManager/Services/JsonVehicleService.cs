@@ -18,8 +18,12 @@ namespace FleetManager.Services
 
             try
             {
-                using FileStream openStream = File.OpenRead(_filePath);
-                return await JsonSerializer.DeserializeAsync<List<Vehicle>>(openStream) ?? new List<Vehicle>();
+                await using var stream = new FileStream(
+                    _filePath, FileMode.Open, FileAccess.Read,
+                    FileShare.Read, bufferSize: 4096, FileOptions.Asynchronous);
+
+                return await JsonSerializer.DeserializeAsync<List<Vehicle>>(stream).ConfigureAwait(false)
+                       ?? new List<Vehicle>();
             }
             catch (JsonException ex)
             {
@@ -36,8 +40,12 @@ namespace FleetManager.Services
             try
             {
                 var options = new JsonSerializerOptions { WriteIndented = true };
-                using FileStream createStream = File.Create(_filePath);
-                await JsonSerializer.SerializeAsync(createStream, vehicles, options);
+
+                await using var stream = new FileStream(
+                    _filePath, FileMode.Create, FileAccess.Write,
+                    FileShare.None, bufferSize: 4096, FileOptions.Asynchronous);
+
+                await JsonSerializer.SerializeAsync(stream, vehicles, options).ConfigureAwait(false);
             }
             catch (IOException ex)
             {

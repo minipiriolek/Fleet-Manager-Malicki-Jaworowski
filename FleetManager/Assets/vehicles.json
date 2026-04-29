@@ -1,26 +1,26 @@
 [
   {
     "Name": "Volvo FH16",
-    "RegistrationNumber": "WA 12345",
-    "FuelLevel": 80,
+    "RegistrationNumber": "NO 12345",
+    "FuelLevel": 30,
     "Status": 0
   },
   {
     "Name": "Scania R500",
-    "RegistrationNumber": "KR 67890",
+    "RegistrationNumber": "NO 676767",
     "FuelLevel": 12,
     "Status": 0
   },
   {
     "Name": "MAN TGX",
-    "RegistrationNumber": "GD 11111",
-    "FuelLevel": 55,
+    "RegistrationNumber": "NO 11111",
+    "FuelLevel": 35,
     "Status": 1
   },
   {
     "Name": "DAF XF",
-    "RegistrationNumber": "PO 22222",
-    "FuelLevel": 40,
+    "RegistrationNumber": "NO 22222",
+    "FuelLevel": 20,
     "Status": 2
   }
 ]
