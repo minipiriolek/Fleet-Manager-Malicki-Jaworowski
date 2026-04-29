@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using FleetManager.Services;
 using FleetManager.ViewModels;
 using FleetManager.Views;
 
@@ -17,12 +18,15 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
+            var vehicleService = new JsonVehicleService();
+        
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(),
+                DataContext = new MainWindowViewModel(vehicleService),
             };
         }
 
         base.OnFrameworkInitializationCompleted();
     }
+    
 }
