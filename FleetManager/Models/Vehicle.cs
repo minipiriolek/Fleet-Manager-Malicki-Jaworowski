@@ -1,5 +1,6 @@
+using Avalonia.Media;
 using ReactiveUI;
-
+using System.Text.Json.Serialization;
 
 namespace FleetManager.Models
 {
@@ -20,21 +21,55 @@ namespace FleetManager.Models
         public double FuelLevel
         {
             get => _fuelLevel;
-            set => this.RaiseAndSetIfChanged(ref _fuelLevel, value);
+            set
+            {
+                var validatedValue = value < 0 ? 0 : value > 100 ? 100 : value;
+                this.RaiseAndSetIfChanged(ref _fuelLevel, validatedValue);
+
+                this.RaisePropertyChanged(nameof(FuelColor));
+                this.RaisePropertyChanged(nameof(CanGoOnRoute));
+                this.RaisePropertyChanged(nameof(CanShowLowFuelWarning));
+            }
         }
 
         public VehicleStatus Status
         {
             get => _status;
-            set => this.RaiseAndSetIfChanged(ref _status, value);
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _status, value);
+
+                this.RaisePropertyChanged(nameof(StatusColor));
+                this.RaisePropertyChanged(nameof(CanRefuel));
+                this.RaisePropertyChanged(nameof(CanGoOnRoute));
+                this.RaisePropertyChanged(nameof(CanShowLowFuelWarning));
+            }
         }
-        
-        public string StatusColor => Status switch
+
+        [JsonIgnore]
+        public IBrush StatusColor => Status switch
         {
-            VehicleStatus.Available => "#28a745", 
-            VehicleStatus.InRoute => "#007bff",   
-            VehicleStatus.Service => "#dc3545",   
-            _ => "#6c757d"
+            VehicleStatus.Available => Brushes.Green,
+            VehicleStatus.InRoute => Brushes.DodgerBlue,
+            VehicleStatus.Service => Brushes.Crimson,
+            _ => Brushes.Gray
         };
+
+        [JsonIgnore]
+        public IBrush FuelColor => FuelLevel switch
+        {
+            < 15 => Brushes.Crimson,
+            < 40 => Brushes.Orange,
+            _ => Brushes.Green
+        };
+
+        [JsonIgnore]
+        public bool CanRefuel => Status != VehicleStatus.InRoute;
+
+        [JsonIgnore]
+        public bool CanGoOnRoute => FuelLevel >= 15 && Status != VehicleStatus.Service;
+
+        [JsonIgnore]
+        public bool CanShowLowFuelWarning => !CanGoOnRoute;
     }
 }

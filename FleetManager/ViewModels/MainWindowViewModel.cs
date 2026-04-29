@@ -30,8 +30,7 @@ namespace FleetManager.ViewModels
             // Inicjalizacja komendy ładowania
             LoadVehiclesCommand = ReactiveCommand.CreateFromTask(LoadVehiclesAsync);
             
-            // Załaduj dane od razu przy starcie
-            Task.Run(() => LoadVehiclesAsync());
+            _ = LoadVehiclesAsync();
         }
 
         private async Task LoadVehiclesAsync()
