@@ -1,4 +1,3 @@
-﻿
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Threading.Tasks;
@@ -11,11 +10,9 @@ namespace FleetManager.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         private readonly IVehicleService _vehicleService;
-        
-        // Kolekcja, którą "widzi" UI
+
         public ObservableCollection<Vehicle> Vehicles { get; } = new();
 
-        // Komendy dla przycisków
         public ReactiveCommand<Unit, Unit> LoadVehiclesCommand { get; }
 
         public MainWindowViewModel()
@@ -27,9 +24,8 @@ namespace FleetManager.ViewModels
         {
             _vehicleService = vehicleService;
 
-            // Inicjalizacja komendy ładowania
             LoadVehiclesCommand = ReactiveCommand.CreateFromTask(LoadVehiclesAsync);
-            
+
             _ = LoadVehiclesAsync();
         }
 
@@ -37,10 +33,12 @@ namespace FleetManager.ViewModels
         {
             var data = await _vehicleService.LoadVehiclesAsync();
             Vehicles.Clear();
+
             foreach (var vehicle in data)
             {
                 Vehicles.Add(vehicle);
             }
         }
+
     }
 }

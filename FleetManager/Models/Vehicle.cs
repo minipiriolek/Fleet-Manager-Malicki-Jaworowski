@@ -71,5 +71,21 @@ namespace FleetManager.Models
 
         [JsonIgnore]
         public bool CanShowLowFuelWarning => !CanGoOnRoute;
+
+        public void Refuel()
+        {
+            if (CanRefuel)
+            {
+                FuelLevel = 100;
+            }
+        }
+
+        public void Dispatch()
+        {
+            if (CanGoOnRoute)
+            {
+                Status = VehicleStatus.InRoute;
+            }
+        }
     }
 }
