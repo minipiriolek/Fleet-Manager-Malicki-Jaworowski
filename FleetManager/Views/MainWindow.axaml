@@ -30,6 +30,16 @@
             </StackPanel>
         </Border>
 
+        <Border DockPanel.Dock="Top"
+                Background="#dc3545"
+                Padding="15,10"
+                IsVisible="{Binding HasError}">
+            <TextBlock Text="{Binding ErrorMessage}"
+                       Foreground="White"
+                       FontSize="13"
+                       TextWrapping="Wrap"/>
+        </Border>
+
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Vehicles}" Margin="10">
                 <ItemsControl.ItemsPanel>
