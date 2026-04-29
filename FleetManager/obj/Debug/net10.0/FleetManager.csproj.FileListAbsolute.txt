@@ -75,8 +75,6 @@ C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\D
 C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetManager.AssemblyInfo.cs
 C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetManager.csproj.CoreCompileInputs.cache
 C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetManager.sourcelink.json
-C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetManager.csproj.Fody.CopyLocal.cache
-C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetManager.csproj.Fody.RuntimeCopyLocal.cache
 C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetMan.993C8869.Up2Date
 C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetManager.dll
 C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\refint\FleetManager.dll
@@ -84,3 +82,5 @@ C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\D
 C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetManager.genruntimeconfig.cache
 C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\ref\FleetManager.dll
 C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\bin\Debug\net10.0\Assets\vehicles.json
+C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetManager.csproj.Fody.CopyLocal.cache
+C:\Users\jawor\RiderProjects\Fleet-Manager-Malicki-Jaworowski\FleetManager\obj\Debug\net10.0\FleetManager.csproj.Fody.RuntimeCopyLocal.cache

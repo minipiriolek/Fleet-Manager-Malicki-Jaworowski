@@ -73,7 +73,7 @@ namespace FleetManager.Models
         public bool CanGoOnRoute => FuelLevel >= 15 && Status != VehicleStatus.Service;
 
         [JsonIgnore]
-        public bool CanShowLowFuelWarning => !CanGoOnRoute;
+        public bool CanShowLowFuelWarning => FuelLevel < 15;
 
         [JsonIgnore]
         public bool IsAvailable => Status == VehicleStatus.Available;

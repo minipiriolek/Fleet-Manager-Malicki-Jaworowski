@@ -2,13 +2,13 @@
   {
     "Name": "Volvo FH16",
     "RegistrationNumber": "WA 12345",
-    "FuelLevel": 80,
+    "FuelLevel": 100,
     "Status": 0
   },
   {
     "Name": "Scania R500",
     "RegistrationNumber": "KR 67890",
-    "FuelLevel": 12,
+    "FuelLevel": 100,
     "Status": 0
   },
   {
@@ -20,7 +20,7 @@
   {
     "Name": "DAF XF",
     "RegistrationNumber": "PO 22222",
-    "FuelLevel": 40,
+    "FuelLevel": 100,
     "Status": 2
   }
 ]
