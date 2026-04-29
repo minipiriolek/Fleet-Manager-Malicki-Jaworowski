@@ -23,7 +23,6 @@ namespace FleetManager.ViewModels
         public MainWindowViewModel(IVehicleService vehicleService)
         {
             _vehicleService = vehicleService;
-
             LoadVehiclesCommand = ReactiveCommand.CreateFromTask(LoadVehiclesAsync);
 
             _ = LoadVehiclesAsync();
@@ -39,6 +38,5 @@ namespace FleetManager.ViewModels
                 Vehicles.Add(vehicle);
             }
         }
-
     }
 }
